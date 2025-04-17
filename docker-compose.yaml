@@ -1,0 +1,20 @@
+services:
+  mercado-livre-front:
+    image: mercado-livre-front:0.0.5
+    container_name: mercado-livre-front
+    ports:
+      - "3040:3000"
+    networks:
+      - mercado-livre-network
+
+  mercado-livre-back:
+    image: mercado-livre-back:0.0.5
+    container_name: mercado-livre-back
+    ports:
+      - "3050:3001"
+    networks:
+      - mercado-livre-network
+
+networks:
+  mercado-livre-network:
+    driver: bridge
