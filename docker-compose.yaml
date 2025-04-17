@@ -15,6 +15,22 @@ services:
     networks:
       - mercado-livre-network
 
+  mercado-livre-db:
+    image: postgres:15.0-alpine
+    container_name: mercado-livre-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: mercado-livre
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - mercado-livre-network
+volumes:
+  postgres-data:
+
 networks:
   mercado-livre-network:
     driver: bridge
